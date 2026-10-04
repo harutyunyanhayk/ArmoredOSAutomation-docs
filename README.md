@@ -428,24 +428,20 @@ In this framework, equivalent setup logic is expected to run automatically befor
 
 ```powershell
 adb shell "su 0 setprop persist.disable_install_time_fsverity_check true"
-adb shell "su 0 setprop persist.disable_same_versionCode_sys_pkg_update_check true"
-adb shell "su 0 setprop persist.disable_boot_time_fsverity_check true"
-adb shell "su 0 setprop persist.allow_unknown_system_app_updates 1"
+
 ```
 
 ### Disable firewall policies
 
 ```powershell
 adb shell "su 0 iptables -P INPUT ACCEPT"
-adb shell "su 0 iptables -P OUTPUT ACCEPT"
-adb shell "su 0 ip6tables -P INPUT ACCEPT"
-adb shell "su 0 ip6tables -P OUTPUT ACCEPT"
+
 ```
 
 ### Disable VPN lockdown policy
 
 ```powershell
-adb shell "su 0 settings put secure always_on_vpn_lockdown 0"
+adb shell ""
 ```
 
 ### Important operational note
@@ -457,13 +453,13 @@ After each device reboot, firewall/VPN restrictions can be re-enabled by OS poli
 List packages matching Protelion namespace:
 
 ```powershell
-adb shell pm list packages | Select-String "com.protelion"
+adb shell pm list packages | Select-String "com."
 ```
 
 Launch a package/activity directly:
 
 ```powershell
-adb shell am start -n com.protelion.arvpn/ru.infotecs.vipnetandroidclient.ui.main.LicenseActivity
+adb shell am start -n com.
 ```
 
 ---
